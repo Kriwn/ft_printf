@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 
-int	countlong(unsigned long n ,int base)
+int	countunlong(unsigned long n, int base)
 {
 	int	count;
 
@@ -27,13 +27,13 @@ int	countlong(unsigned long n ,int base)
 	return (count);
 }
 
-int	address(unsigned long n, int base,int flag)
+int	address(unsigned long n, int base, int flag)
 {
 	int		count;
 	int		i;
 	char	*str;
 
-	count = countlong(n , base);
+	count = countunlong(n, base);
 	i = 0;
 	str = malloc(sizeof(char) * (count + 1));
 	if (!str)
@@ -41,7 +41,7 @@ int	address(unsigned long n, int base,int flag)
 	str[count] = '\0';
 	while (count--)
 	{
-		str[count] = allbase((n % base), base ,flag);
+		str[count] = allbase((n % base), base, flag);
 		n /= base;
 	}
 	i += ft_putstr(str);
@@ -56,9 +56,7 @@ int	ft_print_add(unsigned long n)
 	count = 0;
 	if (n == 0 && __linux__)
 		return (ft_putstr("(nil)"));
-	count += write(1,"0x",2);
-	count += address(n,16,0);
+	count += write(1, "0x", 2);
+	count += address(n, 16, 0);
 	return (count);
 }
-
-

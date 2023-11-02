@@ -1,6 +1,6 @@
 NAME = libftprintf.a
 
-SRCS = ft_allput.c ft_printf.c ft_printadd.c ft_itoa.c
+SRCS = ft_allput.c ft_printf.c ft_printadd.c ft_ltoa.c
 
 # Objects
 OBJS = $(SRCS:.c=.o)
@@ -21,7 +21,7 @@ $(NAME): $(OBJS)
 	$(CC) -c $(CFLAGS) $^ -o $@
 
 clean:
-	rm -f $(OBJS) $(OBJS)
+	rm -f $(OBJS)
 
 fclean: clean
 	rm -f $(NAME)

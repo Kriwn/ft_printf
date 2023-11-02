@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 
-int	countint(long int n, int base)
+int	countlong(long int n, int base)
 {
 	int	count;
 
@@ -27,9 +27,9 @@ int	countint(long int n, int base)
 	return (count);
 }
 
-char allbase(int i,int base,int flag)
+char	allbase(int i, int base, int flag)
 {
-	char *s;
+	char	*s;
 
 	if (flag && base == 16)
 		s = "0123456789ABCDEF";
@@ -40,7 +40,7 @@ char allbase(int i,int base,int flag)
 	return (s[i]);
 }
 
-long int	ft_itoa(long int n, int base,int flag)
+long int	ft_ltoa(long int n, int base, int flag)
 {
 	int		count;
 	int		i;
@@ -54,14 +54,14 @@ long int	ft_itoa(long int n, int base,int flag)
 	}
 	if (n < 0 && base == 16)
 		n *= -1;
-	count = countint(n , base);
+	count = countlong(n, base);
 	str = malloc(sizeof(char) * (count + 1));
 	if (!str)
 		return (-1);
 	str[count] = '\0';
 	while (count--)
 	{
-		str[count] = allbase((n % base), base ,flag);
+		str[count] = allbase((n % base), base, flag);
 		n /= base;
 	}
 	i += ft_putstr(str);

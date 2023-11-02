@@ -27,7 +27,6 @@ size_t	ft_strlen(const char *s)
 int	ft_putchar(char c)
 {
 	c = (unsigned char)c;
-
 	return (write(1, &c, 1));
 }
 
