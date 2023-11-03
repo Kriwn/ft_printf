@@ -54,11 +54,3 @@ int	ft_printf(const char *str, ...)
 	va_end(arg_ptr);
 	return (count);
 }
-
-/*
-int main()
-{
-	printf("%d\n",ft_printf("%d\n",11.1));
-	printf("%d\n",printf("%d\n",11.1));
-}
-*/

@@ -12,6 +12,9 @@ CFLAGS = -Wall \
 		 -Werror \
 		 -I ./
 
+
+# CFLAGS = -I ./
+
 all: $(NAME)
 
 $(NAME): $(OBJS)
