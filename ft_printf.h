@@ -13,6 +13,12 @@
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
+# ifdef __linux__
+#  define PTR_NULL "(nil)"
+# else
+#  define PTR_NULL "0x0"
+# endif
+
 # include <stdio.h>
 # include <stdlib.h>
 # include <limits.h>
