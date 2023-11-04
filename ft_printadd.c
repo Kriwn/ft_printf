@@ -54,8 +54,6 @@ int	ft_print_add(unsigned long n)
 	int	count;
 
 	count = 0;
-	if (n == 0 && __linux__)
-		return (ft_putstr("(nil)"));
 	count += write(1, "0x", 2);
 	count += address(n, 16, 0);
 	return (count);
