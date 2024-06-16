@@ -4,7 +4,7 @@ SRCS = ft_allput.c ft_printf.c ft_printadd.c ft_ltoa.c
 
 # Objects
 OBJS = $(SRCS:.c=.o)
-
+AR = ar
 # Compiler
 CC = cc
 CFLAGS = -Wall \
@@ -18,7 +18,7 @@ CFLAGS = -Wall \
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(AR) -r $@ $?
+	$(AR) -rcs $@ $?
 
 %.o: %.c
 	$(CC) -c $(CFLAGS) $^ -o $@

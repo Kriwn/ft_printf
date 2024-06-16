@@ -27,7 +27,7 @@
 
 int			ft_printf(const char *str, ...)
 			__attribute__ (( format( printf, 1, 2 ) ));
-int			check(const char str, va_list arg_ptr);
+int			check(const char str, va_list *arg_ptr);
 int			ft_putstr(char *s);
 int			ft_putchar(char c);
 size_t		ft_strlen(const char *s);

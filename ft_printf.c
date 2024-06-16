@@ -12,22 +12,22 @@
 
 #include "ft_printf.h"
 
-int	check(const char str, va_list arg_ptr)
+int	check(const char str, va_list *arg_ptr)
 {
 	if (str == 'c')
-		return (ft_putchar(va_arg(arg_ptr, int)));
+		return (ft_putchar(va_arg(*arg_ptr, int)));
 	else if (str == 's')
-		return (ft_putstr(va_arg(arg_ptr, char *)));
+		return (ft_putstr(va_arg(*arg_ptr, char *)));
 	else if (str == 'p')
-		return (ft_print_add(va_arg(arg_ptr, unsigned long)));
+		return (ft_print_add(va_arg(*arg_ptr, unsigned long)));
 	else if (str == 'd' || str == 'i')
-		return (ft_ltoa(va_arg(arg_ptr, int), 10, 0));
+		return (ft_ltoa(va_arg(*arg_ptr, int), 10, 0));
 	else if (str == 'u')
-		return (ft_ltoa(va_arg(arg_ptr, unsigned int), 10, 0));
+		return (ft_ltoa(va_arg(*arg_ptr, unsigned int), 10, 0));
 	else if (str == 'x')
-		return (ft_ltoa(va_arg(arg_ptr, unsigned int), 16, 0));
+		return (ft_ltoa(va_arg(*arg_ptr, unsigned int), 16, 0));
 	else if (str == 'X')
-		return (ft_ltoa(va_arg(arg_ptr, unsigned int), 16, 1));
+		return (ft_ltoa(va_arg(*arg_ptr, unsigned int), 16, 1));
 	else if (str == '%')
 		return (ft_putchar('%'));
 	else
@@ -46,7 +46,7 @@ int	ft_printf(const char *str, ...)
 	while (str[i])
 	{
 		if (str[i] == '%')
-			count += check(str[++i], arg_ptr);
+			count += check(str[++i], &arg_ptr);
 		else
 			count += ft_putchar(str[i]);
 		i++;
